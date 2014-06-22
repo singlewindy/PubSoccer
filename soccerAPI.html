@@ -8,8 +8,8 @@
     
     <title>世界波API调用文档 &mdash; 世界波 1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="static/default.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,9 +20,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
     <link rel="top" title="世界波 1.0 documentation" href="index.html" />
     <link rel="prev" title="Welcome to Soccer’s documentation!" href="index.html" /> 
   </head>
@@ -232,12 +232,96 @@
 <h2>个人主题模块<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id14">
 <h3>球场雷达<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>描述：获取附近球场</p>
+<p>地址：/api/person/getNearbyField.json</p>
+<p>HTTP请求方式：GET</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>latitude, 经度, 非空</li>
+<li>longitude, 纬度, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        data:
+        {
+                fid: 12 (球场ID)
+                name: &quot;北理工球场&quot;
+                photo: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
+                fee: &quot;120 - 150&quot; (费用)
+                location: &quot;中关村南大街5号院&quot;
+                latitude: 123.1234 (经度)
+                longitude: 123.1234 (纬度)
+        }
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id15">
 <h3>球队雷达<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>描述：获取附近球队</p>
+<p>地址：/api/person/getNearbyTeam.json</p>
+<p>HTTP请求方式：GET</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>latitude, 经度, 非空</li>
+<li>longitude, 纬度, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        data:
+        {
+                tid: 12 (球队ID)
+                name: &quot;北理工球队&quot;
+                photo: &quot;http://XXX.com/team/12.jpg&quot;  (图片URL)
+                admin: &quot;PubGeek&quot; (创建人)
+                latitude: 123.1234 (经度)
+                longitude: 123.1234 (纬度)
+        }
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id16">
 <h3>球员雷达<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>描述：获取附近球员</p>
+<p>地址：/api/person/getNearbyPlayer.json</p>
+<p>HTTP请求方式：GET</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>latitude, 经度, 非空</li>
+<li>longitude, 纬度, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        data:
+        {
+                fid: 12 (球场ID)
+                name: &quot;北理工球场&quot;&quot;
+                avatar: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
+                height: &quot;183&quot; (身高)
+                weight: &quot;65&quot; (体重)
+                position: &quot;前锋&quot; (球队角色)
+                latitude: 123.1234 (经度)
+                longitude: 123.1234 (纬度)
+        }
+}
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="id17">
