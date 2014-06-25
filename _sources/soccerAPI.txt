@@ -93,14 +93,14 @@ HTTP请求方式：POST
 	* shortname, 球队简称, 非空
 	* introduction, 简介, 非空
 	* fid, 球场ID, 非空
-	* members, 球员数目, 非空
 	* owner, 拥有者, 非空
-	* sponsor, 赞助商, 非空
+	* sponsor, 赞助商, 可以为空
 	* captain, 队长, 非空
 	* location, 球队地点, 非空
 	* latitude, 球队地点经度, 非空
 	* longitude, 球队地点纬度, 非空
 	* token, 当前用户标识, 非空
+    * 球队管理员默认为该创建者
 
 返回数据：
 ::
