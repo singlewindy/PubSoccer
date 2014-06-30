@@ -52,7 +52,7 @@
 <div class="section" id="id2">
 <h3>获取用户资料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>描述：根据UID获取用户资料(不只是自己，也可以是别人的)</p>
-<p>地址：/api/user/getUserProfile.json</p>
+<p>地址：/api/user/getUserProfile/</p>
 <p>HTTP请求方式：GET</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -106,19 +106,17 @@
 <div class="section" id="id3">
 <h3>更新用户资料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>描述：更新用户资料</p>
-<p>地址：/api/user/updateUserProfile.json</p>
+<p>地址：/api/user/updateUserProfile/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
 <dd><ul class="first last simple">
 <li>nickname, 昵称, 非空</li>
+<li>tid, 球队ID, 非空</li>
 <li>sex (0&#8211;女性，1&#8211;男性), 性别</li>
-<li>height, 身高</li>
-<li>weight, 体重</li>
 <li>birthday, 生日</li>
 <li>province, 省份</li>
 <li>city, 城市</li>
-<li>tid, 球队ID, 非空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
 </dd>
@@ -134,7 +132,7 @@
 <div class="section" id="id4">
 <h3>创建球队<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>描述：创建球队</p>
-<p>地址：/api/user/createTeam.json</p>
+<p>地址：/api/user/createTeam/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -148,8 +146,8 @@
 <li>sponsor, 赞助商, 非空</li>
 <li>captain, 队长, 非空</li>
 <li>location, 球队地点, 非空</li>
-<li>latitude, 球队地点纬度, 非空</li>
-<li>longitude, 球队地点经度, 非空</li>
+<li>latitude, 球队地点经度, 非空</li>
+<li>longitude, 球队地点纬度, 非空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
 </dd>
@@ -168,13 +166,13 @@
 <div class="section" id="id5">
 <h3>更新用户地理位置<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>描述：更新用户地理位置</p>
-<p>地址：/api/user/updateUserLocation.json</p>
+<p>地址：/api/user/updateUserLocation/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
 <dd><ul class="first last simple">
-<li>latitude, 纬度, 非空</li>
-<li>longitude, 经度, 非空</li>
+<li>latitude, 经度, 非空</li>
+<li>longitude, 纬度, 非空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
 </dd>
@@ -193,7 +191,7 @@
 <div class="section" id="id6">
 <h3>更新用户头像<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>描述：更新用户头像</p>
-<p>地址：/api/user/updateAvatar.json</p>
+<p>地址：/api/user/updateAvatar/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -216,18 +214,110 @@
 <h2>帐号模块<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id8">
 <h3>登录<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>描述：登录</p>
+<p>地址：/api/account/login/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>username, 用户名/邮箱, 非空</li>
+<li>password, 密码, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+        token: 123fdesa324fea23
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id9">
 <h3>登出<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>描述：登出</p>
+<p>地址：/api/account/logout/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        error: &quot;Network Error!&quot;
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id10">
-<h3>重置密码<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>修改密码<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>描述：修改密码</p>
+<p>地址：/api/account/resetPW/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>old_password, 老密码, 非空</li>
+<li>new_password1, 新密码, 非空</li>
+<li>new_password2, 新密码确认, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        error: &quot;Network Error!&quot;
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id11">
 <h3>发送重置密码邮件至指定邮箱<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>描述：修改密码</p>
+<p>地址：/api/account/sendPWResetMail/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>email, 邮箱, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        error: &quot;Network Error!&quot;
+}
+</pre></div>
+</div>
 </div>
 <div class="section" id="id12">
 <h3>注册<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>描述：注册</p>
+<p>地址：/api/account/register/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>username, 用户名, 非空</li>
+<li>email, 密码, 非空</li>
+<li>password1, 密码, 非空</li>
+<li>password2, 密码确认, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+        token: 123fdesa324fea23
+}
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="id13">
@@ -235,7 +325,7 @@
 <div class="section" id="id14">
 <h3>球场雷达<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>描述：获取附近球场</p>
-<p>地址：/api/person/getNearbyField.json</p>
+<p>地址：/api/person/getNearbyField/</p>
 <p>HTTP请求方式：GET</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -257,8 +347,8 @@
                 photo: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
                 fee: &quot;120 - 150&quot; (费用)
                 location: &quot;中关村南大街5号院&quot;
-                latitude: 123.1234 (经度)
-                longitude: 123.1234 (纬度)
+                latitude: 123.1234 (纬度)
+                longitude: 123.1234 (经度)
         }
 }
 </pre></div>
@@ -288,8 +378,8 @@
                 name: &quot;北理工球队&quot;
                 photo: &quot;http://XXX.com/team/12.jpg&quot;  (图片URL)
                 admin: &quot;PubGeek&quot; (创建人)
-                latitude: 123.1234 (经度)
-                longitude: 123.1234 (纬度)
+                latitude: 123.1234 (纬度)
+                longitude: 123.1234 (经度)
         }
 }
 </pre></div>
@@ -321,8 +411,8 @@
                 height: &quot;183&quot; (身高)
                 weight: &quot;65&quot; (体重)
                 position: &quot;前锋&quot; (球队角色)
-                latitude: 123.1234 (经度)
-                longitude: 123.1234 (纬度)
+                latitude: 123.1234 (纬度)
+                longitude: 123.1234 (经度)
         }
 }
 </pre></div>
@@ -366,7 +456,7 @@
 <li><a class="reference internal" href="#id7">帐号模块</a><ul>
 <li><a class="reference internal" href="#id8">登录</a></li>
 <li><a class="reference internal" href="#id9">登出</a></li>
-<li><a class="reference internal" href="#id10">重置密码</a></li>
+<li><a class="reference internal" href="#id10">修改密码</a></li>
 <li><a class="reference internal" href="#id11">发送重置密码邮件至指定邮箱</a></li>
 <li><a class="reference internal" href="#id12">注册</a></li>
 </ul>
