@@ -139,7 +139,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~~~~~~~~
 描述：更新用户头像
 
-地址：/api/user/updateAvatar/
+地址：/api/user/updateUserAvatar/
 
 HTTP请求方式：POST
 
