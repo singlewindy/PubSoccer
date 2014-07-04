@@ -160,7 +160,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~
 描述：登录
 
-地址：/api/account/login/
+地址：/api/user/login/
 
 HTTP请求方式：POST
 
@@ -179,7 +179,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~
 描述：登出
 
-地址：/api/account/logout/
+地址：/api/user/logout/
 
 HTTP请求方式：POST
 
@@ -197,7 +197,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~
 描述：修改密码
 
-地址：/api/account/resetPW/
+地址：/api/user/resetPW/
 
 HTTP请求方式：POST
 
@@ -218,7 +218,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 描述：修改密码
 
-地址：/api/account/sendPWResetMail/
+地址：/api/user/sendPWResetMail/
 
 HTTP请求方式：POST
 
@@ -236,7 +236,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~
 描述：注册
 
-地址：/api/account/register/
+地址：/api/user/register/
 
 HTTP请求方式：POST
 
@@ -258,9 +258,9 @@ HTTP请求方式：POST
 ------------
 球场雷达
 ~~~~~~~~~~~~~
-描述：获取附近球场
+描述：获取附近球场(*page和size待商量*)
 
-地址：/api/person/getNearbyField/
+地址：/api/court/getnearby/
 
 HTTP请求方式：GET
 
@@ -280,6 +280,10 @@ HTTP请求方式：GET
 			name: "北理工球场"
 			photo: "http://XXX.com/field/12.jpg"  (图片URL)
 			fee: "120 - 150" (费用)
+            eleven: 0
+            nine: 1
+            seven: 1
+            five: 0
 			location: "中关村南大街5号院"
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
@@ -291,7 +295,7 @@ HTTP请求方式：GET
 ~~~~~~~~~~~~~
 描述：获取附近球队
 
-地址：/api/person/getNearbyTeam.json
+地址：/api/team/getNearbyTeam.json
 
 HTTP请求方式：GET
 
@@ -320,7 +324,7 @@ HTTP请求方式：GET
 ~~~~~~~~~~~~~
 描述：获取附近球员
 
-地址：/api/person/getNearbyPlayer.json
+地址：/api/user/getNearbyPlayer.json
 
 HTTP请求方式：GET
 
