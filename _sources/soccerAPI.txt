@@ -112,11 +112,11 @@ HTTP请求方式：POST
 		}
 	}
 
-更新用户地理位置
+===更新用户地理位置
 ~~~~~~~~~~~~~~~~~~~~
 描述：更新用户地理位置
 
-地址：/api/user/updateUserLocation/
+地址：/api/user/updatelocation/
 
 HTTP请求方式：POST
 
@@ -131,22 +131,21 @@ HTTP请求方式：POST
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		{
-			tid: 12 (球队ID)
+			id: 12 (球队ID)
 		}
 	}
 
-更新用户头像
+===更新用户头像
 ~~~~~~~~~~~~~~~~~~~~
 描述：更新用户头像
 
-地址：/api/user/updateUserAvatar/
+地址：/api/user/updateavatar/
 
 HTTP请求方式：POST
 
 参数：
 	* avatar, 图片文件, 非空
 	* token, 当前用户标识, 非空 
-
 返回数据：
 ::
 	{
@@ -156,7 +155,7 @@ HTTP请求方式：POST
 
 帐号模块
 -------- 
-登录
+===登录
 ~~~~~~~~~~~~~
 描述：登录
 
@@ -175,7 +174,7 @@ HTTP请求方式：POST
 		token: 123fdesa324fea23
 	}
 
-登出
+===登出
 ~~~~~~~~~~~~~
 描述：登出
 
@@ -193,11 +192,11 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-修改密码
+===修改密码
 ~~~~~~~~~~~~~
 描述：修改密码
 
-地址：/api/user/resetPW/
+地址：/api/user/resetpassword/
 
 HTTP请求方式：POST
 
@@ -232,7 +231,7 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-注册
+===注册
 ~~~~~~~~~~~~~
 描述：注册
 
@@ -256,8 +255,9 @@ HTTP请求方式：POST
 
 个人主题模块
 ------------
-雷达（球场、球队、球员）
+===雷达（球场、球队、球员）
 ~~~~~~~~~~~~~
+(需分开接口来获取，不能共用一个接口)
 描述：获取附近雷达数据(*page和size待商量*)
 
 地址：/api/radar/getnearby/
@@ -278,7 +278,7 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			fid: 12 (球场ID)
+			id: 12 (球场ID)
 			name: "北理工球场"
 			photo: "http://XXX.com/field/12.jpg"  (图片URL)
 			fee: "120 - 150" (费用)
@@ -297,7 +297,7 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			tid: 12 (球队ID)
+			id: 12 (球队ID)
 			name: "北理工球队"
 			photo: "http://XXX.com/team/12.jpg"  (图片URL)
 			admin: "PubGeek" (创建人)
@@ -311,7 +311,7 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			fid: 12 (球场ID)
+			id: 12 (球场ID)
 			name: "北理工球场""
 			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
 			height: "183" (身高)

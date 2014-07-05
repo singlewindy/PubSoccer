@@ -164,9 +164,9 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h3>更新用户地理位置<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>===更新用户地理位置<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>描述：更新用户地理位置</p>
-<p>地址：/api/user/updateUserLocation/</p>
+<p>地址：/api/user/updatelocation/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -182,16 +182,16 @@
         status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
         data:
         {
-                tid: 12 (球队ID)
+                id: 12 (球队ID)
         }
 }
 </pre></div>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>更新用户头像<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>===更新用户头像<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>描述：更新用户头像</p>
-<p>地址：/api/user/updateUserAvatar/</p>
+<p>地址：/api/user/updateavatar/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -213,7 +213,7 @@
 <div class="section" id="id7">
 <h2>帐号模块<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id8">
-<h3>登录<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>===登录<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>描述：登录</p>
 <p>地址：/api/user/login/</p>
 <p>HTTP请求方式：POST</p>
@@ -234,7 +234,7 @@
 </div>
 </div>
 <div class="section" id="id9">
-<h3>登出<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>===登出<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>描述：登出</p>
 <p>地址：/api/user/logout/</p>
 <p>HTTP请求方式：POST</p>
@@ -254,9 +254,9 @@
 </div>
 </div>
 <div class="section" id="id10">
-<h3>修改密码<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>===修改密码<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>描述：修改密码</p>
-<p>地址：/api/user/resetPW/</p>
+<p>地址：/api/user/resetpassword/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -297,7 +297,7 @@
 </div>
 </div>
 <div class="section" id="id12">
-<h3>注册<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3>===注册<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>描述：注册</p>
 <p>地址：/api/user/register/</p>
 <p>HTTP请求方式：POST</p>
@@ -323,8 +323,9 @@
 <div class="section" id="id13">
 <h2>个人主题模块<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id14">
-<h3>雷达（球场、球队、球员）<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
-<p>描述：获取附近雷达数据(<em>page和size待商量</em>)</p>
+<h3>===雷达（球场、球队、球员）<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>(需分开接口来获取，不能共用一个接口)
+描述：获取附近雷达数据(<em>page和size待商量</em>)</p>
 <p>地址：/api/radar/getnearby/</p>
 <p>HTTP请求方式：GET</p>
 <dl class="docutils">
@@ -344,7 +345,7 @@
         status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
         data:
         [{
-                fid: 12 (球场ID)
+                id: 12 (球场ID)
                 name: &quot;北理工球场&quot;
                 photo: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
                 fee: &quot;120 - 150&quot; (费用)
@@ -363,7 +364,7 @@ type为1时
         status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
         data:
         [{
-                tid: 12 (球队ID)
+                id: 12 (球队ID)
                 name: &quot;北理工球队&quot;
                 photo: &quot;http://XXX.com/team/12.jpg&quot;  (图片URL)
                 admin: &quot;PubGeek&quot; (创建人)
@@ -377,7 +378,7 @@ type为2时
         status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
         data:
         [{
-                fid: 12 (球场ID)
+                id: 12 (球场ID)
                 name: &quot;北理工球场&quot;&quot;
                 avatar: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
                 height: &quot;183&quot; (身高)
@@ -486,20 +487,20 @@ type为2时
 <li><a class="reference internal" href="#id2">获取用户资料</a></li>
 <li><a class="reference internal" href="#id3">更新用户资料</a></li>
 <li><a class="reference internal" href="#id4">创建球队</a></li>
-<li><a class="reference internal" href="#id5">更新用户地理位置</a></li>
-<li><a class="reference internal" href="#id6">更新用户头像</a></li>
+<li><a class="reference internal" href="#id5">===更新用户地理位置</a></li>
+<li><a class="reference internal" href="#id6">===更新用户头像</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id7">帐号模块</a><ul>
-<li><a class="reference internal" href="#id8">登录</a></li>
-<li><a class="reference internal" href="#id9">登出</a></li>
-<li><a class="reference internal" href="#id10">修改密码</a></li>
+<li><a class="reference internal" href="#id8">===登录</a></li>
+<li><a class="reference internal" href="#id9">===登出</a></li>
+<li><a class="reference internal" href="#id10">===修改密码</a></li>
 <li><a class="reference internal" href="#id11">发送重置密码邮件至指定邮箱</a></li>
-<li><a class="reference internal" href="#id12">注册</a></li>
+<li><a class="reference internal" href="#id12">===注册</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id13">个人主题模块</a><ul>
-<li><a class="reference internal" href="#id14">雷达（球场、球队、球员）</a></li>
+<li><a class="reference internal" href="#id14">===雷达（球场、球队、球员）</a></li>
 <li><a class="reference internal" href="#id15">搜索（球场、球队、球员）</a></li>
 </ul>
 </li>
