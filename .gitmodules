@@ -1,0 +1,4 @@
+[submodule "build/html"]
+	path = build/html
+	url = git@github.com:singlewindy/PubSoccer.git
+	branch = gh-pages
