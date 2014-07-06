@@ -255,63 +255,89 @@ HTTP请求方式：POST
 
 个人主题模块
 ------------
-===雷达（球场、球队、球员）
+===球场雷达
 ~~~~~~~~~~~~~
-(需分开接口来获取，不能共用一个接口)
-描述：获取附近雷达数据(*page和size待商量*)
+描述：获取附近球场
 
-地址：/api/radar/getnearby/
+地址：/api/court/getnearby/
 
 HTTP请求方式：GET
 
 参数：
 	* page, 页码, 非空
-	* size, 返回条数, 若为空则默认为20
+	* size, 返回条数, 非空
 	* latitude, 纬度, 非空
 	* longitude, 经度, 非空
-	* type, 雷达类型（0 -- 球场雷达, 1 -- 球队雷达, 2 -- 球员雷达）
 
 返回数据：
 ::
-	type为0时
 	{
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
-		[{
-			id: 12 (球场ID)
+		{
+			fid: 12 (球场ID)
 			name: "北理工球场"
 			photo: "http://XXX.com/field/12.jpg"  (图片URL)
 			fee: "120 - 150" (费用)
-			eleven: 0
-			nine: 1
-			seven: 1
-			five: 0
 			location: "中关村南大街5号院"
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
-		} ...]
+			distance: 12.3 (单位：km)
+		}
 	}
 
-	type为1时
+
+球队雷达
+~~~~~~~~~~~~~
+描述：获取附近球队
+
+地址：/api/team/getnearby/
+
+HTTP请求方式：GET
+
+参数：
+	* page, 页码, 非空
+	* size, 返回条数, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空 
+
+返回数据：
+::
 	{
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
-		[{
-			id: 12 (球队ID)
+		{
+			tid: 12 (球队ID)
 			name: "北理工球队"
 			photo: "http://XXX.com/team/12.jpg"  (图片URL)
 			admin: "PubGeek" (创建人)
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
-		} ...]
+			distance: 12.3 (单位：km)
+		}
 	}
 
-	type为2时
+球员雷达
+~~~~~~~~~~~~~
+描述：获取附近球员
+
+地址：/api/player/getnearby/
+
+HTTP请求方式：GET
+
+参数：
+	* page, 页码, 非空
+	* size, 返回条数, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空 
+
+返回数据：
+::
 	{
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
-		[{
-			id: 12 (球场ID)
+		{
+			fid: 12 (球场ID)
 			name: "北理工球场""
 			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
 			height: "183" (身高)
@@ -319,7 +345,8 @@ HTTP请求方式：GET
 			position: "前锋" (球队角色) 
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
-		} ...]
+			distance: 12.3 (单位：km)
+		}
 	}
 
 
