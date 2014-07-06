@@ -66,13 +66,13 @@ HTTP请求方式：POST
 
 参数：
 	* nickname, 昵称, 非空
-	* tid, 球队ID, 非空
-	* sex (0--女性，1--男性), 性别
-	* birthday, 生日
-	* height, 身高
-	* weight, 体重
-	* province, 省份
-	* city, 城市
+	* sex (0--女性，1--男性), 性别, 非空
+	* birthday, 生日, 非空
+	* height, 身高, 非空
+	* weight, 体重, 非空
+	* tid, 球队ID, 可为空
+	* province, 省份, 可为空
+	* city, 城市, 可为空
 	* token, 当前用户标识, 非空 
 
 返回数据：
