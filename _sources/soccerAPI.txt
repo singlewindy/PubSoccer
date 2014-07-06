@@ -60,7 +60,7 @@ HTTP请求方式：GET
 ~~~~~~~~~~~~~
 描述：更新用户资料
 
-地址：/api/user/updateUserProfile/
+地址：/api/user/updateuserprofile/
 
 HTTP请求方式：POST
 
@@ -69,6 +69,8 @@ HTTP请求方式：POST
 	* tid, 球队ID, 非空
 	* sex (0--女性，1--男性), 性别
 	* birthday, 生日
+	* height, 身高
+	* weight, 体重
 	* province, 省份
 	* city, 城市
 	* token, 当前用户标识, 非空 
