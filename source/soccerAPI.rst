@@ -56,23 +56,23 @@ HTTP请求方式：GET
 		}
 	}
 
-更新用户资料
+===更新用户资料
 ~~~~~~~~~~~~~
 描述：更新用户资料
 
-地址：/api/user/updateuserprofile/
+地址：/api/user/updateprofile/
 
 HTTP请求方式：POST
 
 参数：
-	* nickname, 昵称, 非空
-	* sex (0--女性，1--男性), 性别, 非空
+	* name, 昵称, 非空
+	* sex (0--男性，1--女性, 2--保密), 性别, 非空
 	* birthday, 生日, 非空
 	* height, 身高, 非空
 	* weight, 体重, 非空
-	* tid, 球队ID, 可为空
-	* province, 省份, 可为空
-	* city, 城市, 可为空
+	* tid, 球队ID, 可为空    ======(这三个暂没添加）
+	* province, 省份, 可为空 ======
+	* city, 城市, 可为空    =========
 	* token, 当前用户标识, 非空 
 
 返回数据：
