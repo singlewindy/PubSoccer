@@ -323,7 +323,7 @@ HTTP请求方式：GET
 ~~~~~~~~~~~~~
 描述：获取附近球员
 
-地址：/api/player/getnearby/
+地址：/api/user/getnearby/
 
 HTTP请求方式：GET
 
@@ -364,6 +364,8 @@ HTTP请求方式：GET
 参数：
 	* keyword, 关键字, 非空
 	* type, 雷达类型（0 -- 球场雷达, 1 -- 球队雷达, 2 -- 球员雷达）, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空
 
 返回数据：
 ::
@@ -379,6 +381,7 @@ HTTP请求方式：GET
 			location: "中关村南大街5号院"
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 
@@ -393,6 +396,7 @@ HTTP请求方式：GET
 			admin: "PubGeek" (创建人)
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 	
@@ -409,6 +413,7 @@ HTTP请求方式：GET
 			position: "前锋" (球队角色) 
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 
@@ -424,6 +429,8 @@ HTTP请求方式：GET
 参数：
 	* id, （球场、球队、球员）ID, 非空
 	* type, 雷达类型（0 -- 球场雷达, 1 -- 球队雷达, 2 -- 球员雷达）, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空
 
 返回数据：
 ::
@@ -445,6 +452,7 @@ HTTP请求方式：GET
 			opentime: "9:00 - 16:00"（营业时间）
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		}
 	}
 
@@ -467,6 +475,7 @@ HTTP请求方式：GET
 			opponents:
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		}
 	}
 	
@@ -486,6 +495,7 @@ HTTP请求方式：GET
 			level:
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 
