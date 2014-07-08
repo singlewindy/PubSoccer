@@ -66,7 +66,7 @@ HTTP请求方式：POST
 	* birthday, 生日, 非空
 	* height, 身高, 非空
 	* weight, 体重, 非空
-	* tid, 球队ID, 可为空    ======(这三个暂没添加）
+	* tid, 球队ID, 可为空 
 	* location, 位置信息，住址之类, 可为空 
 	* token, 当前用户标识, 非空 
 
@@ -77,11 +77,11 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-创建球队
+===创建球队
 ~~~~~~~~~~~~~
 描述：创建球队
 
-地址：/api/user/createTeam/
+地址：/api/team/createTeam/
 
 HTTP请求方式：POST
 
@@ -89,12 +89,11 @@ HTTP请求方式：POST
 	* fullname, 球队全称, 非空
 	* shortname, 球队简称, 非空
 	* introduction, 简介, 非空
-	* fid, 球场ID, 非空
+	* home, 球场ID, 非空
 	* members, 球员数目, 非空
-	* owner, 拥有者, 非空
+	* owner, 拥有者, 非空(自己填的字符串)
 	* sponsor, 赞助商, 非空
-	* captain, 队长, 非空
-	* location, 球队地点, 非空
+	* captain, 队长, 非空(必须从球员里选)
 	* latitude, 球队地点经度, 非空
 	* longitude, 球队地点纬度, 非空
 	* token, 当前用户标识, 非空
