@@ -6,14 +6,13 @@
 
 获取用户资料
 ~~~~~~~~~~~~~
-描述：根据UID获取用户资料(不只是自己，也可以是别人的)
+描述：根据UID获取用户资料(只能获取自己的)
 
-地址：/api/user/getUserProfile/
+地址：/api/user/getuserprofile/
 
 HTTP请求方式：GET
 
 参数：
-	* uid，用户ID, 非空
 	* token，用户标识, 非空
 
 返回数据：
@@ -28,11 +27,8 @@ HTTP请求方式：GET
 		    	nickname: "pubgeek"(昵称)
 		    	email: "admin@pubgeek.com"
 		    	avatar: "http://www.pubgeek.com/avatar/123"
-		    	team:
-		    	{
-		    		tid: 12
-		    		name: "北理工校队"
-		    	]
+		    	tid: 12
+		    	name: "北理工校队"
 		    	sex: 1 (0 -- 女性，1 -- 男性)
 		    	height: 183 (身高)
 		    	weight: 75 (体重，单位为公斤)
@@ -56,7 +52,7 @@ HTTP请求方式：GET
 		}
 	}
 
-===更新用户资料
+===更新用户资料√√(待创建球队完成后测试)
 ~~~~~~~~~~~~~
 描述：更新用户资料
 
@@ -71,8 +67,7 @@ HTTP请求方式：POST
 	* height, 身高, 非空
 	* weight, 体重, 非空
 	* tid, 球队ID, 可为空    ======(这三个暂没添加）
-	* province, 省份, 可为空 ======
-	* city, 城市, 可为空    =========
+	* location, 位置信息，住址之类, 可为空 
 	* token, 当前用户标识, 非空 
 
 返回数据：
@@ -194,7 +189,7 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-===修改密码
+===修改密码√√√
 ~~~~~~~~~~~~~
 描述：修改密码
 
@@ -257,7 +252,7 @@ HTTP请求方式：POST
 
 个人主题模块
 ------------
-===球场雷达√√(已更新，待测试)
+===球场雷达√√√
 ~~~~~~~~~~~~~
 描述：获取附近球场
 
@@ -277,7 +272,7 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		{
-			fid: 12 (球场ID)
+			id: 12 (球场ID)
 			name: "北理工球场"
 			photo: "http://XXX.com/field/12.jpg"  (图片URL)
 			fee: "120 - 150" (费用)
@@ -289,7 +284,7 @@ HTTP请求方式：GET
 	}
 
 
-===球队雷达
+===球队雷达√√(待创建球队完成后测试)
 ~~~~~~~~~~~~~
 描述：获取附近球队
 
@@ -309,7 +304,7 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		{
-			tid: 12 (球队ID)
+			id: 12 (球队ID)
 			name: "北理工球队"
 			photo: "http://XXX.com/team/12.jpg"  (图片URL)
 			admin: "PubGeek" (创建人)
@@ -319,11 +314,11 @@ HTTP请求方式：GET
 		}
 	}
 
-===球员雷达
+===球员雷达√√√
 ~~~~~~~~~~~~~
 描述：获取附近球员
 
-地址：/api/player/getnearby/
+地址：/api/user/getnearby/
 
 HTTP请求方式：GET
 
@@ -339,8 +334,8 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		{
-			fid: 12 (球场ID)
-			name: "北理工球场""
+			id: 12 (球员ID)
+			name: "世界波"
 			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
 			height: "183" (身高)
 			weight: "65" (体重)
@@ -353,9 +348,9 @@ HTTP请求方式：GET
 
 
 
-搜索（球场、球队、球员）
+===搜索（球场、球队、球员）
 ~~~~~~~~~~~~~
-描述：搜索球场、球队、球员（返回搜索结果的前20条）
+描述：搜索球场、球队、球员（返回搜索结果的前20条）**暂未限制数量**
 
 地址：/api/radar/search/
 
@@ -364,6 +359,8 @@ HTTP请求方式：GET
 参数：
 	* keyword, 关键字, 非空
 	* type, 雷达类型（0 -- 球场雷达, 1 -- 球队雷达, 2 -- 球员雷达）, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空
 
 返回数据：
 ::
@@ -372,17 +369,14 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			fid: 12 (球场ID)
+			id: 12 (球场ID)
 			name: "北理工球场"
 			photo: "http://XXX.com/field/12.jpg"  (图片URL)
 			fee: "120 - 150" (费用)
-			eleven: 0
-			nine: 1
-			seven: 1
-			five: 0
 			location: "中关村南大街5号院"
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 
@@ -391,12 +385,13 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			tid: 12 (球队ID)
+			id: 12 (球队ID)
 			name: "北理工球队"
 			photo: "http://XXX.com/team/12.jpg"  (图片URL)
 			admin: "PubGeek" (创建人)
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 	
@@ -405,17 +400,99 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
 		data: 
 		[{
-			fid: 12 (球场ID)
-			name: "北理工球场""
+			id: 12 (球员ID)
+			name: "世界波"
 			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
 			height: "183" (身高)
 			weight: "65" (体重)
 			position: "前锋" (球队角色) 
 			latitude: 123.1234 (纬度)
 			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
 		} ...]
 	}
 
+
+===详情（球场、球队、球员）√√√
+~~~~~~~~~~~~~
+描述：（球场、球队、球员）详情
+
+地址：/api/radar/detail/
+
+HTTP请求方式：GET
+
+参数：
+	* id, （球场、球队、球员）ID, 非空
+	* type, 雷达类型（0 -- 球场雷达, 1 -- 球队雷达, 2 -- 球员雷达）, 非空
+	* latitude, 纬度, 非空
+	* longitude, 经度, 非空
+
+返回数据：
+::
+	type为0时
+	{
+		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		data: 
+		{
+			name: "世界波"
+			photo: "http://XXX.com/field/12.jpg"  (图片URL)
+			phone: 15212342342
+			location: "中关村南大街5号院"
+			fee: "120 - 150" (费用)
+			eleven: 0
+			nine: 1
+			seven: 1
+			five: 0
+			parkingfee: "120 - 150" (停车费用)
+			opentime: "9:00 - 16:00"（营业时间）
+			latitude: 123.1234 (纬度)
+			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
+		}
+	}
+
+	type为1时
+	{
+		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		data: 
+		{
+			fullname: "北京理工大学校队"
+			shortname: "北理工球队"
+			founddate: 12134432432
+			introduction: "大运会代表队"
+			home: 
+			members:
+			owner:
+			sponsor:
+			admin:
+			captain:
+			scores:
+			opponents:
+			latitude: 123.1234 (纬度)
+			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
+		}
+	}
+	
+	type为2时
+	{
+		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		data: 
+		[{
+			name: "世界波"
+			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
+			birthday: 123213213
+			height: "183" (身高)
+			weight: "65" (体重)
+			position: "前锋" (球队角色) 
+			location: 
+			scores: 12
+			level:
+			latitude: 123.1234 (纬度)
+			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
+		} ...]
+	}
 
 团队主题模块
 ------------
