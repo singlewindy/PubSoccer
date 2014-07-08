@@ -6,14 +6,13 @@
 
 获取用户资料
 ~~~~~~~~~~~~~
-描述：根据UID获取用户资料(不只是自己，也可以是别人的)
+描述：根据UID获取用户资料(只能获取自己的)
 
-地址：/api/user/getUserProfile/
+地址：/api/user/getuserprofile/
 
 HTTP请求方式：GET
 
 参数：
-	* uid，用户ID, 非空
 	* token，用户标识, 非空
 
 返回数据：
@@ -28,11 +27,8 @@ HTTP请求方式：GET
 		    	nickname: "pubgeek"(昵称)
 		    	email: "admin@pubgeek.com"
 		    	avatar: "http://www.pubgeek.com/avatar/123"
-		    	team:
-		    	{
-		    		tid: 12
-		    		name: "北理工校队"
-		    	]
+		    	tid: 12
+		    	name: "北理工校队"
 		    	sex: 1 (0 -- 女性，1 -- 男性)
 		    	height: 183 (身高)
 		    	weight: 75 (体重，单位为公斤)
@@ -418,7 +414,7 @@ HTTP请求方式：GET
 	}
 
 
-详情（球场、球队、球员）
+===详情（球场、球队、球员）√√√
 ~~~~~~~~~~~~~
 描述：（球场、球队、球员）详情
 
