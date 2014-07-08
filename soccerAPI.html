@@ -112,7 +112,7 @@
 <li>birthday, 生日, 非空</li>
 <li>height, 身高, 非空</li>
 <li>weight, 体重, 非空</li>
-<li>tid, 球队ID, 可为空    ======(这三个暂没添加）</li>
+<li>tid, 球队ID, 可为空</li>
 <li>location, 位置信息，住址之类, 可为空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
@@ -127,9 +127,9 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h3>创建球队<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>===创建球队<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>描述：创建球队</p>
-<p>地址：/api/user/createTeam/</p>
+<p>地址：/api/team/createTeam/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
@@ -137,12 +137,11 @@
 <li>fullname, 球队全称, 非空</li>
 <li>shortname, 球队简称, 非空</li>
 <li>introduction, 简介, 非空</li>
-<li>fid, 球场ID, 非空</li>
+<li>home, 球场ID, 非空</li>
 <li>members, 球员数目, 非空</li>
-<li>owner, 拥有者, 非空</li>
+<li>owner, 拥有者, 非空(自己填的字符串)</li>
 <li>sponsor, 赞助商, 非空</li>
-<li>captain, 队长, 非空</li>
-<li>location, 球队地点, 非空</li>
+<li>captain, 队长, 非空(必须从球员里选)</li>
 <li>latitude, 球队地点经度, 非空</li>
 <li>longitude, 球队地点纬度, 非空</li>
 <li>token, 当前用户标识, 非空</li>
@@ -597,7 +596,7 @@ type为2时
 <li><a class="reference internal" href="#id1">用户模块</a><ul>
 <li><a class="reference internal" href="#id2">获取用户资料</a></li>
 <li><a class="reference internal" href="#id3">===更新用户资料√√(待创建球队完成后测试)</a></li>
-<li><a class="reference internal" href="#id4">创建球队</a></li>
+<li><a class="reference internal" href="#id4">===创建球队</a></li>
 <li><a class="reference internal" href="#id5">===更新用户地理位置√√√</a></li>
 <li><a class="reference internal" href="#id6">===更新用户头像√√√</a></li>
 </ul>
