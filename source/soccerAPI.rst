@@ -56,20 +56,19 @@ HTTP请求方式：GET
 ~~~~~~~~~~~~~
 描述：更新用户资料
 
-地址：/api/user/updateuserprofile/
+地址：/api/user/updateprofile/
 
 HTTP请求方式：POST
 
 参数：
-	* nickname, 昵称, 非空
-	* sex (0--女性，1--男性), 性别, 非空
+	* name, 昵称, 非空
+	* sex (0--男性，1--女性, 2--保密), 性别, 非空
 	* birthday, 生日, 非空
 	* height, 身高, 非空
 	* weight, 体重, 非空
 	* position, 场上位置, 非空, String类型
 	* tid, 球队ID, 可为空
-	* province, 省份, 可为空
-	* city, 城市, 可为空
+	* location, 位置信息，住址之类, 可为空 
 	* token, 当前用户标识, 非空 
 
 返回数据：
@@ -83,7 +82,7 @@ HTTP请求方式：POST
 ~~~~~~~~~~~~~
 描述：创建球队
 
-地址：/api/user/createTeam/
+地址：/api/team/createTeam/
 
 HTTP请求方式：POST
 
@@ -91,12 +90,11 @@ HTTP请求方式：POST
 	* fullname, 球队全称, 非空
 	* shortname, 球队简称, 非空
 	* introduction, 简介, 非空
-	* fid, 球场ID, 非空
+	* home, 球场ID, 非空
 	* members, 球员数目, 非空
-	* owner, 拥有者, 非空
+	* owner, 拥有者, 非空(自己填的字符串)
 	* sponsor, 赞助商, 非空
-	* captain, 队长, 非空
-	* location, 球队地点, 非空
+	* captain, 队长, 非空(必须从球员里选)
 	* latitude, 球队地点经度, 非空
 	* longitude, 球队地点纬度, 非空
 	* token, 当前用户标识, 非空
@@ -286,7 +284,7 @@ HTTP请求方式：GET
 	}
 
 
-===球队雷达√√(待创建球队完成后测试)
+球队雷达(该接口暂废弃)
 ~~~~~~~~~~~~~
 描述：获取附近球队
 
@@ -351,8 +349,8 @@ HTTP请求方式：GET
 
 
 ===搜索（球场、球队、球员）√√√
-~~~~~~~~~~~~~
-描述：搜索球场、球队、球员（返回搜索结果的前20条）
+
+描述：搜索球场、球队、球员（返回搜索结果的前20条）**暂未限制数量**
 
 地址：/api/radar/search/
 
