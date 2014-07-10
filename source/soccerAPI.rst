@@ -8,7 +8,7 @@
 ~~~~~~~~~~~~~
 描述：根据UID获取用户资料(只能获取自己的)
 
-地址：/api/user/getuserprofile/
+地址：/api/user/getprofile/
 
 HTTP请求方式：GET
 
@@ -54,7 +54,7 @@ HTTP请求方式：GET
 
 ===更新用户资料√√(需增加position字段)
 ~~~~~~~~~~~~~
-描述：更新用户资料
+描述：更新用户资料(已更新)
 
 地址：/api/user/updateprofile/
 
