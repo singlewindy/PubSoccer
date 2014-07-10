@@ -28,7 +28,7 @@ HTTP请求方式：GET
 		    	email: "admin@pubgeek.com"
 		    	avatar: "http://www.pubgeek.com/avatar/123"
 		    	tid: 12
-		    	name: "北理工校队"
+		    	teamname: "北理工校队"（为Team表中的shortname）
 		    	sex: 1 (0 -- 女性，1 -- 男性)
 		    	height: 183 (身高)
 		    	weight: 75 (体重，单位为公斤)
@@ -52,7 +52,7 @@ HTTP请求方式：GET
 		}
 	}
 
-===更新用户资料√√(待创建球队完成后测试)
+===更新用户资料√√(需增加position字段)
 ~~~~~~~~~~~~~
 描述：更新用户资料
 
@@ -66,6 +66,7 @@ HTTP请求方式：POST
 	* birthday, 生日, 非空
 	* height, 身高, 非空
 	* weight, 体重, 非空
+	* position, 场上位置, 非空, String类型
 	* tid, 球队ID, 可为空
 	* province, 省份, 可为空
 	* city, 城市, 可为空
@@ -78,7 +79,7 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-创建球队
+===创建球队√√√
 ~~~~~~~~~~~~~
 描述：创建球队
 
@@ -349,7 +350,7 @@ HTTP请求方式：GET
 
 
 
-搜索（球场、球队、球员）
+===搜索（球场、球队、球员）√√√
 ~~~~~~~~~~~~~
 描述：搜索球场、球队、球员（返回搜索结果的前20条）
 
