@@ -4,7 +4,7 @@
 用户模块
 --------
 
-获取用户资料
+===获取用户资料√√√
 ~~~~~~~~~~~~~
 描述：根据UID获取用户资料(只能获取自己的)
 
@@ -52,7 +52,7 @@ HTTP请求方式：GET
 		}
 	}
 
-===更新用户资料√√(需增加position字段)
+===更新用户资料√√√
 ~~~~~~~~~~~~~
 描述：更新用户资料(已更新)
 
@@ -460,12 +460,14 @@ HTTP请求方式：GET
 			shortname: "北理工球队"
 			founddate: 12134432432
 			introduction: "大运会代表队"
-			home: 
+			homeid:
+			homename: 
 			members:
 			owner:
 			sponsor:
 			admin:
-			captain:
+			captainid:
+			captainname:
 			scores:
 			opponents:
 			latitude: 123.1234 (纬度)
