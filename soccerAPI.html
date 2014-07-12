@@ -50,7 +50,8 @@
 <div class="section" id="id1">
 <h2>用户模块<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>===获取用户资料√√√<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>===获取用户资料√√（需更改，参看文档）<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>备注：在之前基础上删除honor和skill下的star字段，假如admin字段</p>
 <p>描述：根据UID获取用户资料(只能获取自己的)</p>
 <p>地址：/api/user/getprofile/</p>
 <p>HTTP请求方式：GET</p>
@@ -87,13 +88,12 @@
                 time: 1234324241 (比赛时间，时间戳格式)
                 place: &quot;北京市海淀区北京理工大学&quot; (比赛地点)
             } ...]
-            honors: [&quot;XX比赛一等奖&quot;, &quot;XX比赛二等奖&quot;, ...]
             skill:
             {
                 level: 3 (用户现有等级)
                 exp: 123 (用户经验)
-                star: 2 (用户星级)
             }
+            admin: 1 (1 -- 是球队管理员，0 -- 不是球队管理员)
         }
 }
 </pre></div>
@@ -128,23 +128,24 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h3>===创建球队√√√<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>===创建球队√√（需更改，参看文档）<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>备注：在之前基础上删除latitude、longitude、owner字段，加入avatar、contact、phone字段</p>
 <p>描述：创建球队</p>
 <p>地址：/api/team/createTeam/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
 <dd><ul class="first last simple">
+<li>avatar, 球队头像, 文件类型, 非空</li>
 <li>fullname, 球队全称, 非空</li>
 <li>shortname, 球队简称, 非空</li>
 <li>introduction, 简介, 非空</li>
 <li>home, 球场ID, 非空</li>
 <li>members, 球员数目, 非空</li>
-<li>owner, 拥有者, 非空(自己填的字符串)</li>
-<li>sponsor, 赞助商, 非空</li>
+<li>contact, 联系人, 非空(必须从球员里选)</li>
+<li>phone, 联系人电话, 非空</li>
+<li>sponsor, 赞助商, 可为空</li>
 <li>captain, 队长, 非空(必须从球员里选)</li>
-<li>latitude, 球队地点经度, 非空</li>
-<li>longitude, 球队地点纬度, 非空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
 </dd>
@@ -595,9 +596,9 @@ type为2时
   <ul>
 <li><a class="reference internal" href="#">世界波API调用文档</a><ul>
 <li><a class="reference internal" href="#id1">用户模块</a><ul>
-<li><a class="reference internal" href="#id2">===获取用户资料√√√</a></li>
+<li><a class="reference internal" href="#id2">===获取用户资料√√（需更改，参看文档）</a></li>
 <li><a class="reference internal" href="#id3">===更新用户资料√√√</a></li>
-<li><a class="reference internal" href="#id4">===创建球队√√√</a></li>
+<li><a class="reference internal" href="#id4">===创建球队√√（需更改，参看文档）</a></li>
 <li><a class="reference internal" href="#id5">===更新用户地理位置√√√</a></li>
 <li><a class="reference internal" href="#id6">===更新用户头像√√√</a></li>
 </ul>

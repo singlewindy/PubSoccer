@@ -4,9 +4,11 @@
 用户模块
 --------
 
-===获取用户资料√√√
+===获取用户资料√√（需更改，参看文档）
 ~~~~~~~~~~~~~
-描述：根据UID获取用户资料(只能获取自己的)
+备注：在之前基础上删除honor和skill下的star字段，假如admin字段
+
+描述：根据UID获取用户资料(只能获取自己的) 
 
 地址：/api/user/getprofile/
 
@@ -42,13 +44,12 @@ HTTP请求方式：GET
 		    	time: 1234324241 (比赛时间，时间戳格式)
 		    	place: "北京市海淀区北京理工大学" (比赛地点)
 		    } ...]
-		    honors: ["XX比赛一等奖", "XX比赛二等奖", ...]
 		    skill:
 		    {
 		    	level: 3 (用户现有等级)
 		    	exp: 123 (用户经验)
-		    	star: 2 (用户星级)
 		    }
+		    admin: 1 (1 -- 是球队管理员，0 -- 不是球队管理员)
 		}
 	}
 
@@ -78,8 +79,10 @@ HTTP请求方式：POST
 		error: "Network Error!"
 	}
 
-===创建球队√√√
+===创建球队√√（需更改，参看文档）
 ~~~~~~~~~~~~~
+备注：在之前基础上删除latitude、longitude、owner字段，加入avatar、contact、phone字段
+
 描述：创建球队
 
 地址：/api/team/createTeam/
@@ -87,16 +90,16 @@ HTTP请求方式：POST
 HTTP请求方式：POST
 
 参数：
+	* avatar, 球队头像, 文件类型, 非空
 	* fullname, 球队全称, 非空
 	* shortname, 球队简称, 非空
 	* introduction, 简介, 非空
 	* home, 球场ID, 非空
 	* members, 球员数目, 非空
-	* owner, 拥有者, 非空(自己填的字符串)
-	* sponsor, 赞助商, 非空
+	* contact, 联系人, 非空(必须从球员里选)
+	* phone, 联系人电话, 非空
+	* sponsor, 赞助商, 可为空
 	* captain, 队长, 非空(必须从球员里选)
-	* latitude, 球队地点经度, 非空
-	* longitude, 球队地点纬度, 非空
 	* token, 当前用户标识, 非空
 
 返回数据：
