@@ -207,11 +207,63 @@
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="id7">
-<h2>帐号模块<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h3>添加朋友<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>描述：添加朋友</p>
+<p>地址：/api/user/addfriend/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>uid, 对方用户id, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        error: &quot;Network Error!&quot;
+}
+</pre></div>
+</div>
+</div>
 <div class="section" id="id8">
-<h3>===登录√√√<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>获取朋友列表<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>描述：获取朋友列表</p>
+<p>地址：/api/user/getfriends/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>token, 当前用户标识, 非空</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        data:
+        [{
+                id: 12 (球员ID)
+                name: &quot;世界波&quot;
+                avatar: &quot;http://XXX.com/field/12.jpg&quot;  (图片URL)
+                height: &quot;183&quot; (身高)
+                weight: &quot;65&quot; (体重)
+                position: &quot;前锋&quot; (球队角色)
+                latitude: 123.1234 (纬度)
+                longitude: 123.1234 (经度)
+                distance: 12.3 (单位：km)
+        }...]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>帐号模块<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>===登录√√√<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>描述：登录</p>
 <p>地址：/api/user/login/</p>
 <p>HTTP请求方式：POST</p>
@@ -231,8 +283,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h3>===登出√√√<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>===登出√√√<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>描述：登出</p>
 <p>地址：/api/user/logout/</p>
 <p>HTTP请求方式：POST</p>
@@ -251,8 +303,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>===修改密码√√√<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>===修改密码√√√<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>描述：修改密码</p>
 <p>地址：/api/user/changepassword/</p>
 <p>HTTP请求方式：POST</p>
@@ -274,8 +326,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3>发送重置密码邮件至指定邮箱<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>发送重置密码邮件至指定邮箱<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>描述：修改密码</p>
 <p>地址：/api/user/sendPWResetMail/</p>
 <p>HTTP请求方式：POST</p>
@@ -294,8 +346,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id12">
-<h3>===注册√√√<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>===注册√√√<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>描述：注册</p>
 <p>地址：/api/user/register/</p>
 <p>HTTP请求方式：POST</p>
@@ -318,10 +370,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="id13">
-<h2>个人主题模块<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id14">
-<h3>===球场雷达√√√<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h2>个人主题模块<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>===球场雷达√√√<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>描述：获取附近球场</p>
 <p>地址：/api/court/getnearby/</p>
 <p>HTTP请求方式：GET</p>
@@ -353,8 +405,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>球队雷达(该接口暂废弃)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>球队雷达(该接口暂废弃)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>描述：获取附近球队</p>
 <p>地址：/api/team/getnearby/</p>
 <p>HTTP请求方式：GET</p>
@@ -385,8 +437,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id16">
-<h3>===球员雷达√√√<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>===球员雷达√√√<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <p>描述：获取附近球员</p>
 <p>地址：/api/user/getnearby/</p>
 <p>HTTP请求方式：GET</p>
@@ -483,8 +535,8 @@ type为2时
 </pre></div>
 </div>
 </div>
-<div class="section" id="id17">
-<h3>===详情（球场、球队、球员）√√√<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>===详情（球场、球队、球员）√√√<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>描述：（球场、球队、球员）详情</p>
 <p>地址：/api/radar/detail/</p>
 <p>HTTP请求方式：GET</p>
@@ -569,19 +621,19 @@ type为2时
 </div>
 </div>
 </div>
-<div class="section" id="id18">
-<h2>团队主题模块<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id19">
-<h3>获取联赛<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
-</div>
 <div class="section" id="id20">
-<h3>报名联赛<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
-</div>
+<h2>团队主题模块<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id21">
-<h3>预约场地<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<h3>获取联赛<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id22">
-<h3>预约比赛<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<h3>报名联赛<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id23">
+<h3>预约场地<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id24">
+<h3>预约比赛<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -601,28 +653,30 @@ type为2时
 <li><a class="reference internal" href="#id4">===创建球队√√（需更改，参看文档）</a></li>
 <li><a class="reference internal" href="#id5">===更新用户地理位置√√√</a></li>
 <li><a class="reference internal" href="#id6">===更新用户头像√√√</a></li>
+<li><a class="reference internal" href="#id7">添加朋友</a></li>
+<li><a class="reference internal" href="#id8">获取朋友列表</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7">帐号模块</a><ul>
-<li><a class="reference internal" href="#id8">===登录√√√</a></li>
-<li><a class="reference internal" href="#id9">===登出√√√</a></li>
-<li><a class="reference internal" href="#id10">===修改密码√√√</a></li>
-<li><a class="reference internal" href="#id11">发送重置密码邮件至指定邮箱</a></li>
-<li><a class="reference internal" href="#id12">===注册√√√</a></li>
+<li><a class="reference internal" href="#id9">帐号模块</a><ul>
+<li><a class="reference internal" href="#id10">===登录√√√</a></li>
+<li><a class="reference internal" href="#id11">===登出√√√</a></li>
+<li><a class="reference internal" href="#id12">===修改密码√√√</a></li>
+<li><a class="reference internal" href="#id13">发送重置密码邮件至指定邮箱</a></li>
+<li><a class="reference internal" href="#id14">===注册√√√</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13">个人主题模块</a><ul>
-<li><a class="reference internal" href="#id14">===球场雷达√√√</a></li>
-<li><a class="reference internal" href="#id15">球队雷达(该接口暂废弃)</a></li>
-<li><a class="reference internal" href="#id16">===球员雷达√√√</a></li>
-<li><a class="reference internal" href="#id17">===详情（球场、球队、球员）√√√</a></li>
+<li><a class="reference internal" href="#id15">个人主题模块</a><ul>
+<li><a class="reference internal" href="#id16">===球场雷达√√√</a></li>
+<li><a class="reference internal" href="#id17">球队雷达(该接口暂废弃)</a></li>
+<li><a class="reference internal" href="#id18">===球员雷达√√√</a></li>
+<li><a class="reference internal" href="#id19">===详情（球场、球队、球员）√√√</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id18">团队主题模块</a><ul>
-<li><a class="reference internal" href="#id19">获取联赛</a></li>
-<li><a class="reference internal" href="#id20">报名联赛</a></li>
-<li><a class="reference internal" href="#id21">预约场地</a></li>
-<li><a class="reference internal" href="#id22">预约比赛</a></li>
+<li><a class="reference internal" href="#id20">团队主题模块</a><ul>
+<li><a class="reference internal" href="#id21">获取联赛</a></li>
+<li><a class="reference internal" href="#id22">报名联赛</a></li>
+<li><a class="reference internal" href="#id23">预约场地</a></li>
+<li><a class="reference internal" href="#id24">预约比赛</a></li>
 </ul>
 </li>
 </ul>
