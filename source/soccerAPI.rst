@@ -155,6 +155,54 @@ HTTP请求方式：POST
 	}
 
 
+添加朋友
+~~~~~~~~~~~~~~~~~~~~
+描述：添加朋友
+
+地址：/api/user/addfriend/
+
+HTTP请求方式：POST
+
+参数：
+	* uid, 对方用户id, 非空
+	* token, 当前用户标识, 非空 
+返回数据：
+::
+	{
+		status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		error: "Network Error!"
+	}
+
+
+获取朋友列表
+~~~~~~~~~~~~~~~~~~~~
+描述：获取朋友列表
+
+地址：/api/user/getfriends/
+
+HTTP请求方式：POST
+
+参数：
+	* token, 当前用户标识, 非空 
+返回数据：
+::
+	{
+		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		data: 
+		[{
+			id: 12 (球员ID)
+			name: "世界波"
+			avatar: "http://XXX.com/field/12.jpg"  (图片URL)
+			height: "183" (身高)
+			weight: "65" (体重)
+			position: "前锋" (球队角色) 
+			latitude: 123.1234 (纬度)
+			longitude: 123.1234 (经度)
+			distance: 12.3 (单位：km)
+		}...]
+	}
+
+
 帐号模块
 -------- 
 ===登录√√√
