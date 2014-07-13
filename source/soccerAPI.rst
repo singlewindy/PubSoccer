@@ -29,8 +29,6 @@ HTTP请求方式：GET
 		    	nickname: "pubgeek"(昵称)
 		    	email: "admin@pubgeek.com"
 		    	avatar: "http://www.pubgeek.com/avatar/123"
-		    	tid: 12
-		    	teamname: "北理工校队"（为Team表中的shortname）
 		    	sex: 1 (0 -- 女性，1 -- 男性)
 		    	height: 183 (身高)
 		    	weight: 75 (体重，单位为公斤)
@@ -49,7 +47,13 @@ HTTP请求方式：GET
 		    	level: 3 (用户现有等级)
 		    	exp: 123 (用户经验)
 		    }
-		    admin: 1 (1 -- 是球队管理员，0 -- 不是球队管理员)
+            team:
+            [{
+                'tid':1,
+                'teamname':'test',
+                'isadmin': true or false
+             },{}
+            ]
 		}
 	}
 
@@ -85,7 +89,7 @@ HTTP请求方式：POST
 
 描述：创建球队
 
-地址：/api/team/createTeam/
+地址：/api/team/createteam/
 
 HTTP请求方式：POST
 
@@ -96,7 +100,7 @@ HTTP请求方式：POST
 	* introduction, 简介, 非空
 	* home, 球场ID, 非空
 	* members, 球员数目, 非空
-	* contact, 联系人, 非空(必须从球员里选)
+	* contact, 联系人, 非空,非球员，随便填写
 	* phone, 联系人电话, 非空
 	* sponsor, 赞助商, 可为空
 	* captain, 队长, 非空(必须从球员里选)
@@ -155,17 +159,18 @@ HTTP请求方式：POST
 	}
 
 
-添加朋友
+添加/删除朋友
 ~~~~~~~~~~~~~~~~~~~~
 描述：添加朋友
 
-地址：/api/user/addfriend/
+地址：/api/user/friend/
 
 HTTP请求方式：POST
 
 参数：
 	* uid, 对方用户id, 非空
 	* token, 当前用户标识, 非空 
+    * type, 操作，add 或 del
 返回数据：
 ::
 	{
