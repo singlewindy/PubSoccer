@@ -6,7 +6,7 @@
 
 ===获取用户资料√√（需更改，参看文档）
 ~~~~~~~~~~~~~
-备注：在之前基础上删除honor和skill下的star字段，假如admin字段
+备注：在之前基础上删除honor和skill下的star字段，假如admin字段(已处理)
 
 描述：根据UID获取用户资料(只能获取自己的) 
 
@@ -29,8 +29,6 @@ HTTP请求方式：GET
 		    	nickname: "pubgeek"(昵称)
 		    	email: "admin@pubgeek.com"
 		    	avatar: "http://www.pubgeek.com/avatar/123"
-		    	tid: 12
-		    	teamname: "北理工校队"（为Team表中的shortname）
 		    	sex: 1 (0 -- 女性，1 -- 男性)
 		    	height: 183 (身高)
 		    	weight: 75 (体重，单位为公斤)
@@ -49,7 +47,13 @@ HTTP请求方式：GET
 		    	level: 3 (用户现有等级)
 		    	exp: 123 (用户经验)
 		    }
-		    admin: 1 (1 -- 是球队管理员，0 -- 不是球队管理员)
+            team:
+            [{
+                'tid':1,
+                'teamname':'test',
+                'isadmin': true or false
+             },{}
+            ]
 		}
 	}
 
@@ -85,7 +89,7 @@ HTTP请求方式：POST
 
 描述：创建球队
 
-地址：/api/team/createTeam/
+地址：/api/team/createteam/
 
 HTTP请求方式：POST
 
@@ -96,7 +100,7 @@ HTTP请求方式：POST
 	* introduction, 简介, 非空
 	* home, 球场ID, 非空
 	* members, 球员数目, 非空
-	* contact, 联系人, 非空(必须从球员里选)
+	* contact, 联系人, 非空,非球员，随便填写
 	* phone, 联系人电话, 非空
 	* sponsor, 赞助商, 可为空
 	* captain, 队长, 非空(必须从球员里选)
@@ -155,17 +159,38 @@ HTTP请求方式：POST
 	}
 
 
-添加朋友
+添加/删除朋友
 ~~~~~~~~~~~~~~~~~~~~
 描述：添加朋友
 
-地址：/api/user/addfriend/
+地址：/api/user/friend/
 
 HTTP请求方式：POST
 
 参数：
 	* uid, 对方用户id, 非空
 	* token, 当前用户标识, 非空 
+    * type, 操作，add 或 del
+返回数据：
+::
+	{
+		status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		error: "Network Error!"
+	}
+
+
+添加/删除球员(相对与球队)
+~~~~~~~~~~~~~~~~~~~~
+描述：添加/删除球员
+
+地址：/api/user/team/
+
+HTTP请求方式：POST
+
+参数：
+	* tid, 球队id, 非空
+	* token, 当前用户标识, 非空 
+    * type, 操作，add 或 del
 返回数据：
 ::
 	{
@@ -548,6 +573,29 @@ HTTP请求方式：GET
 			distance: 12.3 (单位：km)
 		} ...]
 	}
+
+添加比赛记录
+~~~~~~~~~~~~
+描述: 添加比赛记录
+地址: /api/team/addrecord/
+HTTP请求方式: POST
+参数:
+    * token
+    * selfteam 添加用户自己所在球队
+    * opponent  对方球队
+    * nature  比赛性质,可空
+    * time 比赛时间 格式: 2002-02-02
+    * place 场地 (使用外键或者字符串待定)
+    * selfgoals 本队进球数
+    * opgoals 对方进球数
+    * 还有球员进球还没添加..........
+
+返回数据:
+
+	{
+		status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+	}
+
 
 团队主题模块
 ------------
