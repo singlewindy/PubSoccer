@@ -688,7 +688,7 @@ HTTP请求方式: POST
 参数:</p>
 <blockquote>
 <div><ul class="simple">
-<li>user</li>
+<li>token</li>
 <li>physical</li>
 <li>passing</li>
 <li>sense</li>
@@ -697,11 +697,15 @@ HTTP请求方式: POST
 </ul>
 </div></blockquote>
 <p>返回数据:</p>
-<div class="highlight-python"><div class="highlight"><pre>{
-        status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
-}
-</pre></div>
-</div>
+<dl class="docutils">
+<dt>::</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>status: 1 (0 &#8211; 请求失败, 返回error参数, 带上错误原因；1 &#8211; 请求成功, 带上下述参数)</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="id23">
