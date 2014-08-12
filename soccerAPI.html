@@ -663,7 +663,6 @@ HTTP请求方式: POST
 参数:</p>
 <blockquote>
 <div><ul class="simple">
-<li>token</li>
 <li>selfteam 添加用户自己所在球队</li>
 <li>opponent  对方球队</li>
 <li>nature  比赛性质,可空</li>
@@ -671,32 +670,53 @@ HTTP请求方式: POST
 <li>place 场地 (使用外键或者字符串待定)</li>
 <li>selfgoals 本队进球数</li>
 <li>opgoals 对方进球数</li>
-<li>还有球员进球还没添加..........</li>
+<li>users  [uid, goals, assist],...</li>
 </ul>
 </div></blockquote>
 <p>返回数据:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>status: 1 (0 &#8211; 请求失败, 返回error参数, 带上错误原因；1 &#8211; 请求成功, 带上下述参数)</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+}
+</pre></div>
 </div>
 </div>
 <div class="section" id="id22">
-<h2>团队主题模块<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id23">
-<h3>获取联赛<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<h3>添加技能点<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>描述: 添加技能点
+地址: /api/user/addskill/
+HTTP请求方式: POST
+参数:</p>
+<blockquote>
+<div><ul class="simple">
+<li>user</li>
+<li>physical</li>
+<li>passing</li>
+<li>sense</li>
+<li>shooting</li>
+<li>tech</li>
+</ul>
+</div></blockquote>
+<p>返回数据:</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+}
+</pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="id23">
+<h2>团队主题模块<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id24">
-<h3>报名联赛<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<h3>获取联赛<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id25">
-<h3>预约场地<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<h3>报名联赛<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id26">
-<h3>预约比赛<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<h3>预约场地<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id27">
+<h3>预约比赛<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -735,13 +755,14 @@ HTTP请求方式: POST
 <li><a class="reference internal" href="#id19">===球员雷达√√√</a></li>
 <li><a class="reference internal" href="#id20">===详情（球场、球队、球员）√√√</a></li>
 <li><a class="reference internal" href="#id21">添加比赛记录</a></li>
+<li><a class="reference internal" href="#id22">添加技能点</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id22">团队主题模块</a><ul>
-<li><a class="reference internal" href="#id23">获取联赛</a></li>
-<li><a class="reference internal" href="#id24">报名联赛</a></li>
-<li><a class="reference internal" href="#id25">预约场地</a></li>
-<li><a class="reference internal" href="#id26">预约比赛</a></li>
+<li><a class="reference internal" href="#id23">团队主题模块</a><ul>
+<li><a class="reference internal" href="#id24">获取联赛</a></li>
+<li><a class="reference internal" href="#id25">报名联赛</a></li>
+<li><a class="reference internal" href="#id26">预约场地</a></li>
+<li><a class="reference internal" href="#id27">预约比赛</a></li>
 </ul>
 </li>
 </ul>

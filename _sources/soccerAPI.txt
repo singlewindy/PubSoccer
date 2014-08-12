@@ -580,7 +580,6 @@ HTTP请求方式：GET
 地址: /api/team/addrecord/
 HTTP请求方式: POST
 参数:
-    * token
     * selfteam 添加用户自己所在球队
     * opponent  对方球队
     * nature  比赛性质,可空
@@ -588,15 +587,30 @@ HTTP请求方式: POST
     * place 场地 (使用外键或者字符串待定)
     * selfgoals 本队进球数
     * opgoals 对方进球数
-    * 还有球员进球还没添加..........
-
+    * users  [uid, goals, assist],...
 返回数据:
-
+::
 	{
 		status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
 	}
 
-
+添加技能点
+~~~~~~~~~~~~~
+描述: 添加技能点
+地址: /api/user/addskill/
+HTTP请求方式: POST
+参数:
+    * user
+    * physical
+    * passing
+    * sense
+    * shooting
+    * tech
+返回数据:
+::
+	{
+		status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+	}
 团队主题模块
 ------------
 获取联赛
