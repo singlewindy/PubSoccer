@@ -581,8 +581,8 @@ HTTP请求方式：GET
 HTTP请求方式: POST
 参数:
     * token
-    * tid1 添加用户自己所在球队
-    * tid2 对方球队
+    * selfteam 添加用户自己所在球队
+    * opponent  对方球队
     * nature  比赛性质,可空
     * time 比赛时间 格式: 2002-02-02
     * place 场地 (使用外键或者字符串待定)
