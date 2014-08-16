@@ -67,30 +67,32 @@
         status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功,返回下述参数)
         data:
         {
-            uid: 123
-            basic:
-            {
-                nickname: &quot;pubgeek&quot;(昵称)
-                email: &quot;admin@pubgeek.com&quot;
-                avatar: &quot;http://www.pubgeek.com/avatar/123&quot;
-                sex: 1 (0 -- 女性，1 -- 男性)
-                height: 183 (身高)
-                weight: 75 (体重，单位为公斤)
-                birthday: 1234324241 (时间戳格式)
-                age: 21 (根据当前时间戳和birthday的时间戳来算年龄)
-                province: &quot;北京&quot;
-                city: &quot;北京&quot;
-            }
+            id: 123
+            nickname: &quot;pubgeek&quot;(昵称)
+            email: &quot;admin@pubgeek.com&quot;
+            avatar: &quot;http://www.pubgeek.com/avatar/123&quot;
+            sex: 1 (0 -- 女性，1 -- 男性)
+            height: 183 (身高)
+            weight: 75 (体重，单位为公斤)
+            birthday: 1234324241 (时间戳格式)
+            age: 21 (根据当前时间戳和birthday的时间戳来算年龄)
+            province: &quot;北京&quot;
+            city: &quot;北京&quot;
             competitions:
             [{
                 time: 1234324241 (比赛时间，时间戳格式)
                 place: &quot;北京市海淀区北京理工大学&quot; (比赛地点)
             } ...]
-            skill:
-            {
-                level: 3 (用户现有等级)
-                exp: 123 (用户经验)
-            }
+            level: 3 (用户现有等级)
+            exps: 123 (用户经验)
+    skill:
+    {
+        passing:0,
+        shooting:0,
+        sense:0,
+        physical:0,
+        tech:0
+    }
     team:
     [{
         &#39;tid&#39;:1,
@@ -697,30 +699,45 @@ HTTP请求方式: POST
 </ul>
 </div></blockquote>
 <p>返回数据:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><dl class="first docutils">
-<dt>{</dt>
-<dd>status: 1 (0 &#8211; 请求失败, 返回error参数, 带上错误原因；1 &#8211; 请求成功, 带上下述参数)</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
+}
+</pre></div>
 </div>
 </div>
 <div class="section" id="id23">
-<h2>团队主题模块<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id24">
-<h3>获取联赛<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<h3>获取球队队员信息<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>描述: 获取球队队员信息
+地址: /api/team/members/
+HTTP请求方式: GET
+参数:</p>
+<blockquote>
+<div><ul class="simple">
+<li>tid</li>
+</ul>
+</div></blockquote>
+<p>返回数据:</p>
+<div class="highlight-python"><div class="highlight"><pre>    {
+            status: 1,
+    members: [{user1},{user2},{user3}]
+}
+</pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="id24">
+<h2>团队主题模块<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id25">
-<h3>报名联赛<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<h3>获取联赛<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id26">
-<h3>预约场地<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<h3>报名联赛<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id27">
-<h3>预约比赛<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<h3>预约场地<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id28">
+<h3>预约比赛<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -760,13 +777,14 @@ HTTP请求方式: POST
 <li><a class="reference internal" href="#id20">===详情（球场、球队、球员）√√√</a></li>
 <li><a class="reference internal" href="#id21">添加比赛记录</a></li>
 <li><a class="reference internal" href="#id22">添加技能点</a></li>
+<li><a class="reference internal" href="#id23">获取球队队员信息</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id23">团队主题模块</a><ul>
-<li><a class="reference internal" href="#id24">获取联赛</a></li>
-<li><a class="reference internal" href="#id25">报名联赛</a></li>
-<li><a class="reference internal" href="#id26">预约场地</a></li>
-<li><a class="reference internal" href="#id27">预约比赛</a></li>
+<li><a class="reference internal" href="#id24">团队主题模块</a><ul>
+<li><a class="reference internal" href="#id25">获取联赛</a></li>
+<li><a class="reference internal" href="#id26">报名联赛</a></li>
+<li><a class="reference internal" href="#id27">预约场地</a></li>
+<li><a class="reference internal" href="#id28">预约比赛</a></li>
 </ul>
 </li>
 </ul>

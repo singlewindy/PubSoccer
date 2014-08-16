@@ -23,30 +23,32 @@ HTTP请求方式：GET
 		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功,返回下述参数)
 		data: 
 		{
-		    uid: 123
-		    basic:
-		    {
-		    	nickname: "pubgeek"(昵称)
-		    	email: "admin@pubgeek.com"
-		    	avatar: "http://www.pubgeek.com/avatar/123"
-		    	sex: 1 (0 -- 女性，1 -- 男性)
-		    	height: 183 (身高)
-		    	weight: 75 (体重，单位为公斤)
-		    	birthday: 1234324241 (时间戳格式)
-		    	age: 21 (根据当前时间戳和birthday的时间戳来算年龄)
-		    	province: "北京"
-		    	city: "北京"
-		    }
+		    id: 123
+		    nickname: "pubgeek"(昵称)
+		    email: "admin@pubgeek.com"
+		    avatar: "http://www.pubgeek.com/avatar/123"
+		    sex: 1 (0 -- 女性，1 -- 男性)
+		    height: 183 (身高)
+		    weight: 75 (体重，单位为公斤)
+		    birthday: 1234324241 (时间戳格式)
+		    age: 21 (根据当前时间戳和birthday的时间戳来算年龄)
+		    province: "北京"
+		    city: "北京"
 		    competitions:
 		    [{
 		    	time: 1234324241 (比赛时间，时间戳格式)
 		    	place: "北京市海淀区北京理工大学" (比赛地点)
 		    } ...]
-		    skill:
-		    {
-		    	level: 3 (用户现有等级)
-		    	exp: 123 (用户经验)
-		    }
+		    level: 3 (用户现有等级)
+		    exps: 123 (用户经验)
+            skill:
+            {
+                passing:0,
+                shooting:0,
+                sense:0,
+                physical:0,
+                tech:0
+            }
             team:
             [{
                 'tid':1,
@@ -607,11 +609,24 @@ HTTP请求方式: POST
     * shooting
     * tech
 返回数据:
-
 ::
 	{
 		status: 1 (0 -- 请求失败, 返回error参数, 带上错误原因；1 -- 请求成功, 带上下述参数)
 	}
+
+获取球队队员信息
+~~~~~~~~~~~~~
+描述: 获取球队队员信息
+地址: /api/team/members/
+HTTP请求方式: GET
+参数:
+    * tid
+返回数据:
+::
+	{
+		status: 1,
+        members: [{user1},{user2},{user3}]
+    }
 
 团队主题模块
 ------------
