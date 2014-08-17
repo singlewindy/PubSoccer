@@ -240,26 +240,34 @@
 </div>
 </div>
 <div class="section" id="id8">
-<h3>添加/删除球员(相对与球队)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>添加/删除球员(相对于球队)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>描述：添加/删除球员</p>
-<p>地址：/api/user/team/</p>
+<p>地址：/api/team/team/</p>
 <p>HTTP请求方式：POST</p>
 <dl class="docutils">
 <dt>参数：</dt>
 <dd><blockquote class="first">
 <div><ul class="simple">
-<li>tid, 球队id, 非空</li>
 <li>token, 当前用户标识, 非空</li>
 </ul>
 </div></blockquote>
-<ul class="last simple">
-<li>type, 操作，add 或 del</li>
+<ul class="last">
+<li><dl class="first docutils">
+<dt>uid, 待删除或者添加的球员id</dt>
+<dd><ul class="first last simple">
+<li>tid, 球队id, 非空</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">type, 操作，add 或 del</p>
+</li>
 </ul>
 </dd>
 </dl>
 <p>返回数据：</p>
 <div class="highlight-python"><div class="highlight"><pre>{
-        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功),
         error: &quot;Network Error!&quot;
 }
 </pre></div>
@@ -724,22 +732,50 @@ HTTP请求方式: GET
 </pre></div>
 </div>
 </div>
-<div class="section" id="id24">
-<h3>删除队员<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
-<p>描述: 删除队员
-地址: /api/team/removemember/
-HTTP请求方式: POST
-参数:</p>
-<blockquote>
-<div><ul class="simple">
-<li>tid</li>
-<li>token</li>
-<li>uid (待删除球员的)</li>
+<div class="section" id="team">
+<h3>更新team头像<a class="headerlink" href="#team" title="Permalink to this headline">¶</a></h3>
+<p>描述：更新team头像</p>
+<p>地址：/api/team/updateavatar/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>avatar, 图片文件, 非空</li>
+<li>token, 当前用户标识, 非空</li>
+<li>id 球队id</li>
 </ul>
-</div></blockquote>
-<p>返回数据:</p>
-<div class="highlight-python"><div class="highlight"><pre>    {
-    status:1
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        url: &quot;http://img&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>更新team资料<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>描述：更新team资料</p>
+<p>地址：/api/team/updateprofile/</p>
+<p>HTTP请求方式：POST</p>
+<dl class="docutils">
+<dt>参数：</dt>
+<dd><ul class="first last simple">
+<li>id  球队id</li>
+<li>fullname  全称</li>
+<li>shortname   简称</li>
+<li>introduction  简介</li>
+<li>contact 联系人</li>
+<li>phone  手机号</li>
+<li>home  主场id</li>
+</ul>
+</dd>
+</dl>
+<p>返回数据：</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+        status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+        error: &quot;Network Error!&quot;
 }
 </pre></div>
 </div>
@@ -778,7 +814,7 @@ HTTP请求方式: POST
 <li><a class="reference internal" href="#id5">===更新用户地理位置√√√</a></li>
 <li><a class="reference internal" href="#id6">===更新用户头像√√√</a></li>
 <li><a class="reference internal" href="#id7">添加/删除朋友</a></li>
-<li><a class="reference internal" href="#id8">添加/删除球员(相对与球队)</a></li>
+<li><a class="reference internal" href="#id8">添加/删除球员(相对于球队)</a></li>
 <li><a class="reference internal" href="#id9">获取朋友列表</a></li>
 </ul>
 </li>
@@ -798,7 +834,8 @@ HTTP请求方式: POST
 <li><a class="reference internal" href="#id21">添加比赛记录</a></li>
 <li><a class="reference internal" href="#id22">添加技能点</a></li>
 <li><a class="reference internal" href="#id23">获取球队队员信息</a></li>
-<li><a class="reference internal" href="#id24">删除队员</a></li>
+<li><a class="reference internal" href="#team">更新team头像</a></li>
+<li><a class="reference internal" href="#id24">更新team资料</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id25">团队主题模块</a><ul>
