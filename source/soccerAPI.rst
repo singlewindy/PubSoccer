@@ -625,9 +625,23 @@ HTTP请求方式: GET
 ::
 	{
 		status: 1,
-        members: [{user1},{user2},{user3}]
-    }
+            members: [{user1},{user2},{user3}]
+        }
 
+删除队员
+~~~~~~~~~~~~~
+描述: 删除队员
+地址: /api/team/removemember/
+HTTP请求方式: POST
+参数:
+    * tid
+    * token
+    * uid (待删除球员的)
+返回数据:
+::
+	{
+        status:1
+    }
 团队主题模块
 ------------
 获取联赛
