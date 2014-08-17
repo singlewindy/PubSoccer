@@ -717,27 +717,47 @@ HTTP请求方式: GET
 </ul>
 </div></blockquote>
 <p>返回数据:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+        <span class="n">status</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">members</span><span class="p">:</span> <span class="p">[{</span><span class="n">user1</span><span class="p">},{</span><span class="n">user2</span><span class="p">},{</span><span class="n">user3</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>删除队员<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>描述: 删除队员
+地址: /api/team/removemember/
+HTTP请求方式: POST
+参数:</p>
+<blockquote>
+<div><ul class="simple">
+<li>tid</li>
+<li>token</li>
+<li>uid (待删除球员的)</li>
+</ul>
+</div></blockquote>
+<p>返回数据:</p>
 <div class="highlight-python"><div class="highlight"><pre>    {
-            status: 1,
-    members: [{user1},{user2},{user3}]
+    status:1
 }
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id24">
-<h2>团队主题模块<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id25">
-<h3>获取联赛<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
-</div>
+<h2>团队主题模块<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id26">
-<h3>报名联赛<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<h3>获取联赛<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id27">
-<h3>预约场地<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<h3>报名联赛<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id28">
-<h3>预约比赛<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<h3>预约场地<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id29">
+<h3>预约比赛<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -778,13 +798,14 @@ HTTP请求方式: GET
 <li><a class="reference internal" href="#id21">添加比赛记录</a></li>
 <li><a class="reference internal" href="#id22">添加技能点</a></li>
 <li><a class="reference internal" href="#id23">获取球队队员信息</a></li>
+<li><a class="reference internal" href="#id24">删除队员</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id24">团队主题模块</a><ul>
-<li><a class="reference internal" href="#id25">获取联赛</a></li>
-<li><a class="reference internal" href="#id26">报名联赛</a></li>
-<li><a class="reference internal" href="#id27">预约场地</a></li>
-<li><a class="reference internal" href="#id28">预约比赛</a></li>
+<li><a class="reference internal" href="#id25">团队主题模块</a><ul>
+<li><a class="reference internal" href="#id26">获取联赛</a></li>
+<li><a class="reference internal" href="#id27">报名联赛</a></li>
+<li><a class="reference internal" href="#id28">预约场地</a></li>
+<li><a class="reference internal" href="#id29">预约比赛</a></li>
 </ul>
 </li>
 </ul>
