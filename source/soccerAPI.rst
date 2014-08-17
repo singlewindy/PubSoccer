@@ -181,22 +181,23 @@ HTTP请求方式：POST
 	}
 
 
-添加/删除球员(相对与球队)
+添加/删除球员(相对于球队)
 ~~~~~~~~~~~~~~~~~~~~
 描述：添加/删除球员
 
-地址：/api/user/team/
+地址：/api/team/team/
 
 HTTP请求方式：POST
 
 参数：
-	* tid, 球队id, 非空
 	* token, 当前用户标识, 非空 
+    * uid, 待删除或者添加的球员id
+	* tid, 球队id, 非空
     * type, 操作，add 或 del
 返回数据：
 ::
 	{
-		status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功),
 		error: "Network Error!"
 	}
 
@@ -628,20 +629,51 @@ HTTP请求方式: GET
             members: [{user1},{user2},{user3}]
         }
 
-删除队员
-~~~~~~~~~~~~~
-描述: 删除队员
-地址: /api/team/removemember/
-HTTP请求方式: POST
-参数:
-    * tid
-    * token
-    * uid (待删除球员的)
-返回数据:
+更新team头像
+~~~~~~~~~~~~~~~~~~~~
+描述：更新team头像
+
+地址：/api/team/updateavatar/
+
+HTTP请求方式：POST
+
+参数：
+	* avatar, 图片文件, 非空
+	* token, 当前用户标识, 非空 
+	* id 球队id
+
+返回数据：
 ::
 	{
-        status:1
-    }
+		status: 1 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		url: "http://img"
+	}
+
+
+更新team资料
+~~~~~~~~~~~~~
+描述：更新team资料
+
+地址：/api/team/updateprofile/
+
+HTTP请求方式：POST
+
+参数：
+	* id  球队id
+	* fullname  全称
+	* shortname   简称
+	* introduction  简介
+	* contact 联系人
+	* phone  手机号
+	* home  主场id
+返回数据：
+::
+	{
+		status: 0 (0 -- 请求失败，返回error参数，带上错误原因；1 -- 请求成功)
+		error: "Network Error!"
+	}
+
+
 团队主题模块
 ------------
 获取联赛
