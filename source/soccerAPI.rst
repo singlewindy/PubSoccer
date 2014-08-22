@@ -674,6 +674,58 @@ HTTP请求方式：POST
 	}
 
 
+
+发送比赛请求
+~~~~~~~~~~~~~~~~~
+描述：(你那里设置只有管理员能点击)：
+
+url:  api/team/vs/
+
+POST:
+    - sid 管理员所在球队id (整数)
+    - tid 目标球队  (整数)
+    - vs_time 比赛时间  格式：2013-01-01 13:30
+    - court 比赛场地  (字符窜)
+返回数据:
+::
+    {
+        "status": 1
+    }
+
+
+GET:
+    - token 管理员token
+
+返回数据:
+::
+{
+    "status": 1, 
+    "data": [{  'vs_id': j.id,
+                        'apply_team': j.team_host.fullname,
+                        'apply_time': j.apply_time,
+                        'avatar': j.team_host._avatar(),
+                        'contact': j.team_host.contact,
+                        'phone': j.team_host.phone,
+                        'vs_time': j.vs_time.strftime('%Y-%m-%d %H:%M'),
+                        'is_done': j.is_done
+                    }, {}, {}
+                    ]
+}
+
+删除比赛请求记录
+~~~~~~~~~~~~~~~~
+
+url:  api/team/handle/
+
+POST:
+    - vs_id  记录的id值，上面接口获得
+
+返回：
+::
+{"status": 1}
+
+
+
 团队主题模块
 ------------
 获取联赛
